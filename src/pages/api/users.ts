@@ -4,6 +4,8 @@ import User from "@/models/UserModel";
 import { authMiddleware } from "@/middleware/authMiddleware";
 import bcrypt from "bcrypt";
 
+
+
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   await dbConnect();
 
@@ -38,9 +40,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       case "PUT": // Update user details
       try {
-        const { id, name, email } = req.body;
+        const { _id, name, email } = req.body;
     
-        if (!id) {
+        if (!_id) {
           return res.status(400).json({ error: "User ID is required" }); // Log missing ID
         }
         if (!name && !email) {
@@ -48,7 +50,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         }
     
         const updatedUser = await User.findByIdAndUpdate(
-          id,
+          _id,
           { ...(name && { name }), ...(email && { email }) },
           { new: true } // Return the updated user
         );

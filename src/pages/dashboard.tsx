@@ -70,7 +70,7 @@ export default function Dashboard() {
     if (!editUser) return;
     console.log("Edit User Payload:", editUser); // Log the payload being sent
     const token = localStorage.getItem("token");
-    fetch("/api/users", {
+    fetch(`/api/users${editUser._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
       body: JSON.stringify(editUser),

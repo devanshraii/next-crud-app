@@ -63,7 +63,7 @@ export default function Dashboard() {
   };
 
   const handleEdit = (user: User) => {
-    setEditUser({ _id: user._id, name: user.name, email: user.email });
+    setEditUser({ id: user._id, name: user.name, email: user.email });
   };
 
   const handleSaveEdit = () => {

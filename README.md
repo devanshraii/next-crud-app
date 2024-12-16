@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js CRUD App
 
-## Getting Started
+A simple CRUD application built with **Next.js** and **MongoDB**. This app allows users to register, log in, update their details, and delete their accounts. It demonstrates the use of JWT authentication, MongoDB for storing user data, and RESTful API endpoints for user management.
 
-First, run the development server:
+## Features
 
-```bash
+- **User Authentication**: Users can sign up, log in, and manage their profiles.
+- **CRUD Operations**: Create, Read, Update, and Delete users.
+- **Secure API Endpoints**: API endpoints are protected using JWT authentication.
+
+## Technologies Used
+
+- **Frontend**: React, Next.js (v15.1.0)
+- **Backend**: Next.js API routes
+- **Database**: MongoDB (via Mongoose)
+- **Authentication**: JWT (JSON Web Tokens)
+- **Styling**: Tailwind CSS
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- Node.js (v14 or later)
+- MongoDB (local or MongoDB Atlas account)
+- npm (Node Package Manager)
+
+## Setup and Installation
+
+### 1. Clone the Repository
+
+git clone https://github.com/your-username/next-crud-app.git
+cd next-crud-app
+
+### 2. Install Dependencies
+Run the following command to install all necessary dependencies:
+npm install
+
+### 3. Environment Variables
+Create a .env.local file in the root of the project and set the following environment variables:
+
+MONGO_URI=mongodb://localhost:27017/your-database-name
+
+JWT_SECRET=your-secret-key
+
+Replace your-database-name with the name of your MongoDB database.
+
+Replace your-secret-key with a strong secret key for JWT authentication.
+
+### 4. Run the Development Server
+Start the development server by running:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This will start the app on http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+API Endpoints
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+GET /api/users: Fetch all users (Requires JWT authentication)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+POST /api/users: Create a new user (Sign up)
 
-## Learn More
+PUT /api/users/[id]: Update an existing user’s details (Requires JWT authentication)
 
-To learn more about Next.js, take a look at the following resources:
+DELETE /api/users/[id]: Delete a user (Requires JWT authentication)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Frontend Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Dashboard
 
-## Deploy on Vercel
+The Dashboard page allows logged-in users to:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+View a list of users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Edit user details.
+
+Delete a user.
+
+Sign Up
+
+The Sign Up page allows new users to create an account by providing their name, email, and password.
+
+Login
+
+The Login page allows users to sign in using their email and password.

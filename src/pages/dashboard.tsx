@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // Define the User type
 interface User {
-  id: string;
+  _id: string;
   name: string;
   email: string;
 }
@@ -63,7 +63,7 @@ export default function Dashboard() {
   };
 
   const handleEdit = (user: User) => {
-    setEditUser({ id: user.id, name: user.name, email: user.email });
+    setEditUser({ _id: user._id, name: user.name, email: user.email });
   };
 
   const handleSaveEdit = () => {
@@ -100,7 +100,7 @@ export default function Dashboard() {
           {Array.isArray(users) && users.length > 0 ? (
             users.map((user) => (
               <div
-                key={user.id}
+                key={user._id}
                 className="flex justify-between items-center p-4 bg-gray-200 rounded shadow"
               >
                 <div>
@@ -115,7 +115,7 @@ export default function Dashboard() {
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(user.id)}
+                    onClick={() => handleDelete(user._id)}
                     className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                   >
                     Delete
